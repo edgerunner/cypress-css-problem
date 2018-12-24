@@ -1,0 +1,101 @@
+.search-box {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.search-box * { box-sizing: border-box; }
+
+.search-box .selected,
+.search-box input {
+    background-color: #333;
+    border: solid 2px #888;
+    padding: .25rem .5rem;
+    color: white;
+    margin: 0;
+    border-style: none solid;
+    outline: none;
+    caret-color: #FE0;
+    font-size: 1rem;
+    display: block; 
+    width: 100%;
+}
+
+.search-box input:focus {
+    border-color: #bbb;
+}
+
+.search-box:last-child .selected,
+.search-box:last-child input {
+    border-bottom-style: solid;
+    border-radius: 0 0 .25rem .25rem;
+
+}
+
+.search-box:first-child .selected,
+.search-box:first-child input {
+    border-top-style: solid;
+    border-radius: .25rem .25rem 0 0;
+}
+
+.search-box.results input:focus {
+    border-bottom-style: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 0px 0 0 2px #333;
+}
+
+ul.search-results {
+    position: absolute;
+    background: #333;
+    margin: 0;
+    padding: 0;
+    border: solid 2px #BBB;
+    border-radius: 0 0 .25rem .25rem;
+    border-top: none;
+    list-style: none;
+    font-weight: 300;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0px 0 0 2px var(--dashboard-background);
+}
+
+ul.search-results li {
+    padding: .25rem .5rem;
+}
+
+ul.search-results li:hover {
+    background-color: black;
+}
+
+.search-box ul.search-results { display: none; }
+.search-box.results input:focus + ul.search-results,
+ul.search-results:hover { display: block; }
+
+@media (min-width: 40rem) {
+    .search-box .selected,
+    .search-box input {
+        border-style: solid none;
+    }
+    
+    .search-box:last-child .selected,
+    .search-box:last-child input {
+        border-right-style: solid;
+        border-radius: 0 .25rem .25rem 0;
+    }
+    
+    .search-box:first-child .selected,
+    .search-box:first-child input {
+        border-left-style: solid;
+        border-radius: .25rem 0 0 .25rem;
+    }
+    
+    .search-box.results input:focus {
+        border-bottom-style: none;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        box-shadow: 0px 0 0 2px #333;
+    }
+}

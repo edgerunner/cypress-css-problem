@@ -1,0 +1,88 @@
+env:
+    browser: true
+    es6: true
+    cypress/globals: true
+
+extends:
+    - 'eslint:recommended'
+    - 'plugin:react/recommended'
+    - 'plugin:cypress/recommended'
+
+parserOptions:
+    ecmaFeatures:
+        jsx: true
+    ecmaVersion: 2018
+    sourceType: module
+
+plugins:
+    - react
+    - cypress
+    - chai-friendly
+
+rules:
+    indent:
+        - error
+        - 4
+    linebreak-style:
+        - error
+        - unix
+    quotes:
+        - error
+        - double
+    semi:
+        - error
+        - always
+    react/prop-types:
+        - warn
+        -
+            ignore: []
+            customValidators: []
+            skipUndeclared: true
+
+    react/destructuring-assignment:
+        - error
+        - always
+        -
+            ignoreClassFields: true
+
+    react/no-array-index-key: error
+    react/jsx-closing-tag-location: error
+    react/jsx-curly-spacing: error
+
+    no-multi-spaces: error
+    comma-spacing: error
+    comma-style: error
+    computed-property-spacing: error
+    func-call-spacing: error
+    key-spacing: error
+    keyword-spacing: error
+    block-spacing: error
+    switch-colon-spacing: error
+    arrow-spacing: error
+    no-multiple-empty-lines: error
+    no-trailing-spaces: error
+    object-curly-newline:
+        - error
+        -
+            multiline: true
+            minProperties: 5
+    object-curly-spacing:
+        - error
+        - always
+
+    prefer-const: warn
+
+    no-unused-expressions: off
+    chai-friendly/no-unused-expressions: error
+
+overrides:
+    -
+        files:
+            - "*.test.js"
+        globals:
+            it: false
+    -
+        files:
+            - "stories/*.js"
+        globals:
+            module: false
